@@ -57,3 +57,19 @@ a {
     padding: 0.5vw 1vw;
     margin: 0.5vw 1vw;
 }
+
+.displayForecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cnt {
+    display: flex;
+    flex-direction: row;
+}
+
+.hidden {
+    display: none;
+}

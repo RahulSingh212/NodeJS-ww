@@ -23,6 +23,7 @@ let weatherSearchInput = document.querySelector('.inputLocation');
 let weatherSearchButton = document.querySelector('.buttonSearch');
 let messageVal1 = document.querySelector('#message-1');
 let messageVal2 = document.querySelector('#message-2');
+let weatherBox = document.querySelector('.displayForecast');
 
 messageVal1.textContent = messageVal2.textContent = '';
 
@@ -47,6 +48,7 @@ weatherForm.addEventListener('submit', function(event) {
                     // prompt(`Unable to fetch the data for the weather forecast.`);
                     console.log('error');
                     messageVal2.textContent = '';
+                    weatherBox.textContent = '';
                     messageVal1.textContent = `Unable to fetch the data for the weather forecast.`;
                 }
                 else {
@@ -58,14 +60,16 @@ weatherForm.addEventListener('submit', function(event) {
 
                     if (loc === undefined) {
                         messageVal2.textContent = '';
+                        weatherBox.textContent = '';
+                        weatherBox.innerHTML = '';
                         messageVal1.textContent = `Unable to fetch the data for the Location Provided.`;
                     }
                     else {
-                        messageVal2.textContent = `
-                            Location: ${loc},
-                            Latitude: ${lat},
-                            Longitude: ${lng},
-                            info: ${inf}
+                        weatherBox.innerHTML = `
+                            <b>Location    : </b> ${loc}
+                            <b>Latitude    : </b> ${lat} 
+                            <b>Longitude   : </b> ${lng}
+                            <b>Information : </b> ${inf} 
                         `;
                         console.log(returnedData);
                         weatherSearchInput.value = '';
