@@ -2,6 +2,8 @@
 
 console.log(`Welcome To app.js`);
 
+let herokuPortValue = process.env.PORT || 3000;
+
 let corePath = require('path'); // No need to install as it's a core node module
 let theExpress = require('express');
 let theRequest = require('request');
@@ -173,6 +175,12 @@ appData.get('*', (request, response) => {
     response.render('404ErrorPage', errObj);
 })
 
-appData.listen(3000, () => {
-    console.log(`Server has been setup on port 30000 and it's up and running.`);
+// // Running on our local server without heroku providing the port value
+// appData.listen(3000, () => {
+//     console.log(`Server has been setup on port 30000 and it's up and running.`);
+// });
+
+
+appData.listen(herokuPortValue, () => {
+    console.log(`Server is up and is running on ${herokuPortValue}.`);
 });

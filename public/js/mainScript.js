@@ -38,7 +38,10 @@ weatherForm.addEventListener('submit', function(event) {
         messageVal1.textContent = `"Location Field is Empty! Enter your Location..."`;
     }
     else {
-        fetch(`http://localhost:3000/weather?address=${weatherSearchInput.value}`).then((response) => {
+
+        // // Can only used for local - hosting
+        // fetch(`http://localhost:3000/weather?address=${weatherSearchInput.value}`).then((response) => {
+        fetch(`/weather?address=${weatherSearchInput.value}`).then((response) => {    
             response.json().then((returnedData) => {
                 if (returnedData.error) {
                     // prompt(`Unable to fetch the data for the weather forecast.`);
