@@ -1,5 +1,7 @@
 // Handlebars/hbs : It allows us to render dynamic documents(i.e, things inside the webpage will be changed when page is refreshed) as compared to the ones which don't change even if the page is refreshed
 
+console.log(`Welcome To app.js`);
+
 let corePath = require('path'); // No need to install as it's a core node module
 let theExpress = require('express');
 let theRequest = require('request');
